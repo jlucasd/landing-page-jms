@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { background-color: #0a1a2e; }
+  /* Foco visível em todos os elementos interativos (acessibilidade) */
+  a:focus-visible, button:focus-visible, input:focus-visible,
+  select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@layer utilities {
+  /* Tipografia display "outline" (contorno) usada nas headings grandes */
+  .text-stroke {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+  }
+  /* Scrollbar fina para o track horizontal (seção Jetski) */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #ffffff #1a3a5c;
+  }
+  .scrollbar-thin::-webkit-scrollbar { height: 6px; }
+  .scrollbar-thin::-webkit-scrollbar-thumb { background: #ffffff; border-radius: 3px; }
+  .scrollbar-thin::-webkit-scrollbar-track { background: #1a3a5c; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
