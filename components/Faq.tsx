@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-import { FAQ_ITEMS, CONTACT_INFO } from '../constants';
+import { FAQ_ITEMS, WHATSAPP_RESERVE } from '../constants';
 
 const Faq: React.FC = () => {
   const [open, setOpen] = useState<number | null>(0);
@@ -37,7 +37,7 @@ const Faq: React.FC = () => {
 
         <p className="text-center text-muted font-light mt-10">
           Ainda com dúvidas? Fale com a gente no{' '}
-          <a href={CONTACT_INFO.whatsapp} target="_blank" rel="noopener noreferrer" className="text-primary font-semibold hover:text-muted transition-colors">WhatsApp</a>.
+          <a href={WHATSAPP_RESERVE} target="_blank" rel="noopener noreferrer" className="text-primary font-semibold hover:text-muted transition-colors">WhatsApp</a>.
         </p>
       </div>
     </section>

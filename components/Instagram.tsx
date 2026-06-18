@@ -14,7 +14,7 @@ const Instagram: React.FC = () => {
     <section id="instagram" className="py-16 md:py-24 bg-secondary scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
-          <div className="space-y-4">
+          <div className="space-y-4 text-center md:text-left">
             <h2 className="text-xs font-bold tracking-[0.2em] text-muted uppercase">Siga a JMS</h2>
             <h3 className="text-4xl lg:text-5xl font-display font-black text-primary leading-tight">
               No nosso <span className="italic font-semibold text-muted">Instagram</span>
@@ -25,7 +25,7 @@ const Instagram: React.FC = () => {
             </a>
           </div>
           <a href={CONTACT_INFO.instagram} target="_blank" rel="noopener noreferrer"
-            className="self-start md:self-auto inline-flex items-center gap-2 px-6 py-3 bg-primary text-navy font-bold text-sm tracking-widest uppercase hover:bg-muted transition-colors">
+            className="self-center md:self-auto inline-flex items-center gap-2 px-6 py-3 bg-primary text-navy font-bold text-sm tracking-widest uppercase hover:bg-muted transition-colors">
             <InstagramIcon size={18} strokeWidth={1.8} /> Seguir
           </a>
         </div>

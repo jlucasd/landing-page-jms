@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { JETSKI_FRAMES, CONTACT_INFO } from '../constants';
+import { JETSKI_FRAMES, WHATSAPP_RESERVE } from '../constants';
 
 /*
  * SEÇÃO "JETSKI" — modelo callout-socials-layout
@@ -51,7 +51,7 @@ const Jetskis: React.FC = () => {
       <p className="text-center text-muted text-[0.7rem] tracking-[0.2em] uppercase mt-1">← arraste para explorar →</p>
 
       <div className="text-center mt-10">
-        <a href={`${CONTACT_INFO.whatsapp}?text=${encodeURIComponent('Olá! Quero reservar o jetski Yamaha da JMS.')}`}
+        <a href={WHATSAPP_RESERVE}
           target="_blank" rel="noopener noreferrer"
           className="inline-block px-8 py-4 bg-primary text-navy font-bold text-sm tracking-widest uppercase hover:bg-muted transition-colors">
           Reserve o seu

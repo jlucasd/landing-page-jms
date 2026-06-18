@@ -1,7 +1,7 @@
 import React from 'react';
 import { MapPin, Phone, MessageCircle, Navigation } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { CONTACT_INFO } from '../constants';
+import { CONTACT_INFO, WHATSAPP_RESERVE } from '../constants';
 
 const Location: React.FC = () => {
   return (
@@ -39,7 +39,7 @@ const Location: React.FC = () => {
               <MessageCircle className="text-primary shrink-0 mt-1" size={26} strokeWidth={1.5} />
               <div>
                 <h4 className="font-display font-bold text-lg text-primary mb-1">WhatsApp</h4>
-                <a href={CONTACT_INFO.whatsapp} target="_blank" rel="noopener noreferrer"
+                <a href={WHATSAPP_RESERVE} target="_blank" rel="noopener noreferrer"
                   className="text-primary font-semibold tracking-widest uppercase text-sm hover:text-muted transition-colors">
                   Reserve direto pelo WhatsApp →
                 </a>
@@ -47,7 +47,7 @@ const Location: React.FC = () => {
             </div>
 
             <a href={CONTACT_INFO.maps} target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 bg-primary text-navy text-xs uppercase tracking-[0.15em] font-bold px-8 py-4 hover:bg-muted transition-colors self-start">
+              className="inline-flex items-center justify-center gap-3 bg-primary text-navy text-xs uppercase tracking-[0.15em] font-bold px-8 py-4 hover:bg-muted transition-colors self-center md:self-start">
               <Navigation size={18} strokeWidth={1.5} /> Como chegar
             </a>
           </motion.div>

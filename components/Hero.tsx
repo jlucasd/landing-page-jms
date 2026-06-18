@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
-import { CONTACT_INFO, HERO_VIDEO, HERO_POSTER } from '../constants';
+import { WHATSAPP_RESERVE, HERO_VIDEO, HERO_POSTER } from '../constants';
 
 const scrollToJetskis = (e: React.MouseEvent<HTMLAnchorElement>) => {
   e.preventDefault();
@@ -37,27 +37,23 @@ const Hero: React.FC = () => {
           >
             <source src={HERO_VIDEO} type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/70 to-navy/20" />
-          <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/15 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy/80 via-navy/35 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy/55 via-transparent to-transparent" />
         </motion.div>
 
         {/* Conteúdo */}
         <motion.div style={{ opacity: contentOpacity, y: contentY }} className="relative z-10 h-full flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-28 pb-16">
-            <span className="inline-flex items-center gap-2 border border-white/15 rounded-full px-4 py-2 bg-white/5 text-muted text-[0.7rem] font-bold tracking-[0.18em] uppercase">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" /> Laguna · SC · e região
-            </span>
-
-            <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-display font-black text-primary leading-[0.95] tracking-tight mt-6 mb-5 max-w-[14ch]">
+            <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-display font-black text-primary leading-[0.95] tracking-tight mb-5 max-w-[14ch] text-center mx-auto sm:text-left sm:mx-0 [text-shadow:0_2px_24px_rgba(10,26,46,0.7)]">
               Aluguel de Jetski em Laguna
             </h1>
 
-            <p className="text-lg md:text-2xl text-muted font-light max-w-xl leading-relaxed">
+            <p className="text-lg md:text-2xl text-primary/90 font-light max-w-xl leading-relaxed [text-shadow:0_1px_16px_rgba(10,26,46,0.85)]">
               Quer se divertir? A JMS Jetski leva você para acelerar nas águas de Laguna com segurança, qualidade e o melhor preço.
             </p>
 
-            <div className="flex flex-wrap gap-4 mt-9">
-              <a href={`${CONTACT_INFO.whatsapp}?text=${encodeURIComponent('Olá! Quero reservar um jetski com a JMS.')}`}
+            <div className="flex flex-wrap gap-4 mt-9 justify-center sm:justify-start">
+              <a href={WHATSAPP_RESERVE}
                 target="_blank" rel="noopener noreferrer"
                 className="px-8 py-4 bg-primary text-navy font-bold text-sm tracking-widest uppercase hover:bg-muted transition-colors">
                 Reserve agora

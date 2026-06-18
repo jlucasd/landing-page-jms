@@ -1,9 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CONTACT_INFO } from '../constants';
+import { WHATSAPP_RESERVE } from '../constants';
 
 const WhatsAppWidget: React.FC = () => {
-  const url = `${CONTACT_INFO.whatsapp}?text=${encodeURIComponent('Olá! Quero reservar um jetski com a JMS.')}`;
+  const url = WHATSAPP_RESERVE;
 
   return (
     <motion.a

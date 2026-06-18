@@ -12,6 +12,9 @@ import jet05 from './img/jet-05.webp';
 import jet06 from './img/jet-06.webp';
 import jet07 from './img/jet-07.webp';
 import heroPoster from './img/hero-poster.webp';
+// Fotos da página /jetski (frota)
+import frotaSolo from './img/frota-solo.webp';
+import frotaEquip from './img/frota-equip.webp';
 // Fotos das cidades (locais para navegação)
 import cidadeLaguna from './img/locais/laguna.webp';
 import cidadeRincao from './img/locais/balneario-rincao.webp';
@@ -23,8 +26,24 @@ export const HERO_VIDEO = '/hero.mp4';
 export const HERO_POSTER = heroPoster;
 
 // Galeria: todas as fotos reais de jmsjetski.com.br/galeria (import automático em ordem).
+// Dimensões intrínsecas para reservar o espaço correto no track horizontal (lazy load + sem CLS).
 const galeriaModules = import.meta.glob('./img/galeria/*.webp', { eager: true, import: 'default' }) as Record<string, string>;
-export const GALLERY_IMAGES: string[] = Object.keys(galeriaModules).sort().map((k) => galeriaModules[k]);
+const GALERIA_DIMS: Record<string, { w: number; h: number }> = {
+  'g-01.webp': { w: 510, h: 510 }, 'g-02.webp': { w: 960, h: 1280 }, 'g-03.webp': { w: 960, h: 1280 },
+  'g-04.webp': { w: 960, h: 1280 }, 'g-05.webp': { w: 960, h: 1280 }, 'g-06.webp': { w: 287, h: 510 },
+  'g-07.webp': { w: 510, h: 510 }, 'g-08.webp': { w: 382, h: 510 }, 'g-09.webp': { w: 478, h: 510 },
+  'g-10.webp': { w: 408, h: 510 }, 'g-11.webp': { w: 514, h: 510 }, 'g-12.webp': { w: 1024, h: 1280 },
+  'g-13.webp': { w: 960, h: 1280 }, 'g-14.webp': { w: 960, h: 1280 }, 'g-15.webp': { w: 960, h: 1280 },
+  'g-16.webp': { w: 680, h: 510 }, 'g-17.webp': { w: 960, h: 1280 }, 'g-18.webp': { w: 1024, h: 1280 },
+  'g-19.webp': { w: 960, h: 1280 }, 'g-20.webp': { w: 960, h: 1280 },
+};
+export interface GalleryImage { src: string; w: number; h: number; }
+export const GALLERY: GalleryImage[] = Object.keys(galeriaModules).sort().map((k) => {
+  const name = k.split('/').pop() as string;
+  const d = GALERIA_DIMS[name] ?? { w: 4, h: 3 };
+  return { src: galeriaModules[k], w: d.w, h: d.h };
+});
+export const GALLERY_IMAGES: string[] = GALLERY.map((g) => g.src);
 
 export const CONTACT_INFO = {
   name: 'JMS Jetski',
@@ -41,8 +60,8 @@ export const CONTACT_INFO = {
   maps: 'https://maps.app.goo.gl/2xwj3ciJ4yiMcZ7NA',
 };
 
-// Link de reserva direto no WhatsApp (mesmo do botão flutuante)
-export const WHATSAPP_RESERVE = `${CONTACT_INFO.whatsapp}?text=${encodeURIComponent('Olá! Quero reservar um jetski com a JMS.')}`;
+// Link único de reserva no WhatsApp (usado em todos os CTAs e no botão flutuante)
+export const WHATSAPP_RESERVE = 'https://api.whatsapp.com/send?phone=5548996344407&text=Ol%C3%A1,%20vim%20atrav%C3%A9s%20do%20site%20e%20gostaria%20de%20alugar%20o%20Jet%20Ski%20para%20me%20divertir.';
 
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Sobre', href: '#sobre' },
@@ -50,6 +69,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'Locais', href: '#locais' },
   { label: 'Galeria', href: '#galeria' },
   { label: 'FAQ', href: '#faq' },
+  { label: 'Localização', href: '#localizacao' },
 ];
 
 export const DIFERENCIAIS: Diferencial[] = [
@@ -64,9 +84,9 @@ export const JETSKI_FRAMES: JetskiFrame[] = [
   { type: 'model', name: 'Yamaha 1100', spec: '110 cv · 4 tempos', image: jet04, alt: 'Jetski Yamaha da JMS pronto para locação' },
   { type: 'quote', quote: 'Adrenalina e liberdade em cada acelerada.', highlight: 'liberdade' },
   { type: 'model', name: 'Marcha à ré', spec: 'Manobras fáceis e seguras', image: jet05, alt: 'Jetski da JMS com a identidade na plataforma' },
-  { type: 'model', name: 'Solo, casal ou grupo', spec: 'Condutores habilitados', image: jet07, alt: 'Piloto em jetski da JMS nas águas de Laguna' },
+  { type: 'model', name: 'Solo, casal ou grupo', spec: 'Condutores habilitados', image: frotaSolo, alt: 'Jetski Yamaha da JMS sobre a carretinha' },
   { type: 'quote', quote: 'Segurança e diversão para toda a família.', highlight: 'diversão' },
-  { type: 'model', name: 'Equipamento de qualidade', spec: 'Frota revisada', image: jet06, alt: 'Piloto com colete de segurança no jetski da JMS' },
+  { type: 'model', name: 'Equipamento de qualidade', spec: 'Frota revisada', image: frotaEquip, alt: 'Jetski Yamaha da JMS em detalhe, revisado e pronto' },
 ];
 
 export const LOCAIS: LocalNavegacao[] = [
@@ -102,9 +122,9 @@ export const TESTIMONIALS: Testimonial[] = [
 ];
 
 export const TEAM: TeamMember[] = [
-  { initial: 'J', name: 'João Damiani', role: 'CEO', photo: jet06, focus: '50% 22%', bio: 'Formado em TI, descobriu a paixão pelas atividades náuticas e adora compartilhar conhecimento sobre o mar.' },
+  { initial: 'J', name: 'João Damiani', role: 'CEO', photo: jet06, focus: '50% 50%', bio: 'Formado em TI, descobriu a paixão pelas atividades náuticas e adora compartilhar conhecimento sobre o mar.' },
   { initial: 'M', name: 'Mayck Manoel', role: 'CEO', photo: jet01, focus: '62% 42%', bio: 'Ex-Marinha e fundador da Escola Náutica Albor, com foco em segurança marítima e respeito ao oceano.' },
-  { initial: 'S', name: 'Stivison Gomes', role: 'CEO', photo: jet07, focus: '50% 28%', bio: 'Entusiasta do mar, apaixonado por aventuras subaquáticas e mergulho.' },
+  { initial: 'S', name: 'Stivison Gomes', role: 'CEO', photo: jet07, focus: '50% 55%', bio: 'Entusiasta do mar, apaixonado por aventuras subaquáticas e mergulho.' },
 ];
 
 // Posts REAIS do Instagram @jmsalugueldejetski (miniaturas baixadas + permalink do post).
