@@ -40,7 +40,7 @@ export interface LocalNavegacao {
 
 export interface FaqItem {
   question: string;
-  answer: string;
+  answer: React.ReactNode;
 }
 
 export interface Testimonial {

@@ -7,12 +7,12 @@ const Diferenciais: React.FC = () => {
     <section id="diferenciais" className="py-16 md:py-24 bg-navy scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="space-y-4 max-w-2xl">
-          <h2 className="text-xs font-bold tracking-[0.2em] text-muted uppercase">Por que a JMS</h2>
+          <h2 className="text-xs font-bold tracking-[0.2em] text-muted uppercase">Por que a JMS?</h2>
           <h3 className="text-4xl lg:text-5xl font-display font-black text-primary leading-tight">
             Diferenciais que <span className="italic font-semibold text-muted">fazem o seu dia</span>
           </h3>
           <p className="text-muted font-light text-lg">
-            Equipamentos de qualidade, segurança em primeiro lugar e atendimento próximo para curtir o mar sem preocupação.
+            Equipamentos de qualidade, segurança em primeiro lugar e atendimento personalizado para você curtir o mar sem preocupação.
           </p>
         </div>
 

@@ -12,7 +12,7 @@ const Location: React.FC = () => {
             <div>
               <h2 className="text-xs font-bold tracking-[0.2em] text-muted uppercase mb-4">Localização</h2>
               <h3 className="text-4xl lg:text-5xl font-display font-black text-primary leading-tight mb-5">
-                Onde nos <span className="italic font-semibold text-muted">encontrar</span>
+                Onde nos <span className="italic font-semibold text-muted">encontrar?</span>
               </h3>
               <p className="text-muted font-light text-lg leading-relaxed max-w-lg">
                 Retirada próxima ao Iate Club em Laguna/SC ou em local combinado no momento da locação.

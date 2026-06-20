@@ -10,7 +10,7 @@ const Locais: React.FC = () => {
         <div className="space-y-4 max-w-2xl mb-12">
           <h2 className="text-xs font-bold tracking-[0.2em] text-muted uppercase">Locais para navegação</h2>
           <h3 className="text-4xl lg:text-5xl font-display font-black text-primary leading-tight">
-            Onde você pode <span className="italic font-semibold text-muted">acelerar</span>
+            Onde você pode <span className="italic font-semibold text-muted">acelerar?</span>
           </h3>
           <p className="text-muted font-light text-lg">Veja os locais onde você pode realizar a sua navegação com a JMS.</p>
         </div>

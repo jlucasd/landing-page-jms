@@ -45,11 +45,11 @@ const Hero: React.FC = () => {
         <motion.div style={{ opacity: contentOpacity, y: contentY }} className="relative z-10 h-full flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-28 pb-16">
             <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-display font-black text-primary leading-[0.95] tracking-tight mb-5 max-w-[14ch] text-center mx-auto sm:text-left sm:mx-0 [text-shadow:0_2px_24px_rgba(10,26,46,0.7)]">
-              Aluguel de Jetski em Laguna
+              Aluguel de Jetski em Laguna - SC e região
             </h1>
 
             <p className="text-lg md:text-2xl text-primary/90 font-light max-w-xl leading-relaxed [text-shadow:0_1px_16px_rgba(10,26,46,0.85)]">
-              Quer se divertir? A JMS Jetski leva você para acelerar nas águas de Laguna com segurança, qualidade e o melhor preço.
+              Quer se divertir? A JMS Jetski leva você para acelerar nas águas de Laguna e região com segurança, qualidade e o melhor preço.
             </p>
 
             <div className="flex flex-wrap gap-4 mt-9 justify-center sm:justify-start">

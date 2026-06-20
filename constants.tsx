@@ -98,7 +98,7 @@ export const LOCAIS: LocalNavegacao[] = [
 export const FAQ_ITEMS: FaqItem[] = [
   { question: 'Onde retiro o Jet Ski?', answer: 'Próximo ao Iate Club em Laguna/SC ou em local combinado no momento da locação.' },
   { question: 'O que é necessário para alugar um jet?', answer: 'O processo é idêntico ao de um veículo: o locatário precisa ser habilitado como Motonauta (CHA-MTA), fazer o caução exigido via PIX ou transferência bancária e estar ciente das cláusulas do contrato de locação.' },
-  { question: 'Não tenho habilitação, mas quero alugar, o que faço?', answer: 'Trabalhamos em parceria com a escola Albor, em Laguna/SC, que oferece o treinamento para obtenção da habilitação. Contato: (48) 98500-0926 ou albornautica.com.br.' },
+  { question: 'Não tenho habilitação, mas quero alugar, o que faço?', answer: (<>Trabalhamos em parceria com a escola Albor, em Laguna/SC, que oferece o treinamento para obtenção da habilitação. Contato: (48) 98500-0926 ou <a href="https://albornautica.com.br/" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2 hover:text-muted transition-colors">albornautica.com.br</a>.</>) },
   { question: 'Como funciona o pagamento do aluguel?', answer: '50% no momento da reserva (para garantir a data) e 50% no embarque. Aceitamos dinheiro, PIX e transferência bancária.' },
   { question: 'Posso deixar minha família andar?', answer: 'Somente condutores habilitados e inscritos no contrato de locação podem conduzir a embarcação.' },
   { question: 'Posso levar o Jet Ski para outra cidade?', answer: 'Sim, mediante alinhamento prévio no momento da locação e ciência das cláusulas do contrato.' },
@@ -122,9 +122,9 @@ export const TESTIMONIALS: Testimonial[] = [
 ];
 
 export const TEAM: TeamMember[] = [
-  { initial: 'J', name: 'João Damiani', role: 'CEO', photo: jet06, focus: '50% 50%', bio: 'Formado em TI, descobriu a paixão pelas atividades náuticas e adora compartilhar conhecimento sobre o mar.' },
-  { initial: 'M', name: 'Mayck Manoel', role: 'CEO', photo: jet01, focus: '62% 42%', bio: 'Ex-Marinha e fundador da Escola Náutica Albor, com foco em segurança marítima e respeito ao oceano.' },
-  { initial: 'S', name: 'Stivison Gomes', role: 'CEO', photo: jet07, focus: '50% 55%', bio: 'Entusiasta do mar, apaixonado por aventuras subaquáticas e mergulho.' },
+  { initial: 'J', name: 'J - João Damiani', role: 'CEO', photo: jet06, focus: '50% 50%', bio: 'Formado em Tecnologia da Informação, João descobriu sua verdadeira paixão na área náutica. Com um olhar atento para detalhes e uma mente analítica, ele se dedica a compartilhar seu conhecimento e experiências no mar, inspirando outros a explorar esse universo fascinante.' },
+  { initial: 'M', name: 'M - Mayck Manoel', role: 'CEO', photo: jet01, focus: '62% 42%', bio: 'Ex-membro da Marinha, Mayck é o fundador da Escola Náutica Albor. Com uma vasta experiência em navegação e segurança no mar, ele se empenha em formar novos marinheiros, transmitindo seu amor pela vida náutica e a importância de respeitar os oceanos.' },
+  { initial: 'S', name: 'S - Stivison Gomes', role: 'CEO', photo: jet07, focus: '50% 55%', bio: 'Stivison é um verdadeiro amante da náutica, sempre em busca de novas aventuras nas águas. Seja navegando ou mergulhando nas belezas subaquáticas, ele compartilha sua paixão pelo mar com todos que encontram seu caminho, inspirando outros a se juntarem a essa jornada.' },
 ];
 
 // Posts REAIS do Instagram @jmsalugueldejetski (miniaturas baixadas + permalink do post).

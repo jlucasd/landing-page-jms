@@ -23,18 +23,27 @@ const About: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Texto */}
-          <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: '-100px' }} transition={{ duration: 0.8 }} className="space-y-6">
+          <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: '-100px' }} transition={{ duration: 0.8 }} className="space-y-4">
             <h2 className="text-xs font-bold tracking-[0.2em] text-muted uppercase">Sobre nós</h2>
             <h3 className="text-4xl lg:text-5xl font-display font-black text-primary leading-[1.05] tracking-tight">
               Nós somos a <span className="italic font-semibold text-muted">JMS!</span>
             </h3>
             <div className="w-12 h-px bg-primary/50" />
-            <div className="space-y-5 text-muted font-light text-lg leading-relaxed">
+            <div className="space-y-3 text-muted font-light text-sm leading-relaxed">
               <p>
                 Você quer se divertir alugando um Jet Ski em Laguna/SC e região e ainda compartilhar a experiência com seus amigos? Nós somos a empresa certa!
               </p>
               <p>
-                Fundada em <strong className="text-primary font-medium">8 de dezembro de 2022</strong> por três amigos com o mesmo sonho de empreender e criar momentos inesquecíveis de diversão e aventura. Oferecemos coletes salva-vidas, âncora, cabos de amarração e caixas estanque, além de contrato de locação, apoio no lançamento na água e transporte com carretinha para você escolher onde se aventurar.
+                Fundada em <strong className="text-primary font-medium">8 de dezembro de 2022</strong> por três amigos com o mesmo sonho de empreender e criar momentos inesquecíveis de diversão e aventura. Na JMS, oferecemos todo o equipamento de segurança necessário, incluindo: coletes salva-vidas, âncoras, cabos de atracação e cases impermeáveis para documentos e acessórios.
+              </p>
+              <p>
+                Além disso, fornecemos um contrato de locação claro e transparente para garantir a tranquilidade de nossos clientes. Oferecemos a opção de realizar a descida dos JetSkis na água pela nossa equipe, facilitando ainda mais sua experiência.
+              </p>
+              <p>
+                Disponibilizamos também a carreta para transporte rodoviário, permitindo ao locatário a flexibilidade no transporte e escolha de locais para suas aventuras.
+              </p>
+              <p>
+                Contate-nos, venha nos visitar e descubra o que é sentir a liberdade e viver momentos incríveis com a JMS.
               </p>
             </div>
           </motion.div>
