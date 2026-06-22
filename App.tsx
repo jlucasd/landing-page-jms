@@ -12,6 +12,7 @@ import Faq from './components/Faq';
 import Location from './components/Location';
 import Footer from './components/Footer';
 import WhatsAppWidget from './components/WhatsAppWidget';
+import ChatBot from './components/ChatBot';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
       </main>
       <Footer />
       <WhatsAppWidget />
+      <ChatBot />
     </div>
   );
 }
