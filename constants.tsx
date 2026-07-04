@@ -38,9 +38,17 @@ const GALERIA_DIMS: Record<string, { w: number; h: number }> = {
   'g-19.webp': { w: 960, h: 1280 }, 'g-20.webp': { w: 960, h: 1280 },
 };
 export interface GalleryImage { src: string; w: number; h: number; }
-export const GALLERY: GalleryImage[] = Object.keys(galeriaModules).sort().map((k) => {
-  const name = k.split('/').pop() as string;
-  const d = GALERIA_DIMS[name] ?? { w: 4, h: 3 };
+// Fotos dos sócios (as mesmas usadas em "Quem comanda a JMS") vão para o FINAL,
+// deixando as fotos de clientes em destaque no início do carrossel.
+const SOCIO_PHOTOS = ['g-01.webp', 'g-13.webp', 'g-14.webp'];
+const nameOf = (k: string) => k.split('/').pop() as string;
+const galeriaKeys = Object.keys(galeriaModules).sort();
+const orderedKeys = [
+  ...galeriaKeys.filter((k) => !SOCIO_PHOTOS.includes(nameOf(k))),
+  ...galeriaKeys.filter((k) => SOCIO_PHOTOS.includes(nameOf(k))),
+];
+export const GALLERY: GalleryImage[] = orderedKeys.map((k) => {
+  const d = GALERIA_DIMS[nameOf(k)] ?? { w: 4, h: 3 };
   return { src: galeriaModules[k], w: d.w, h: d.h };
 });
 export const GALLERY_IMAGES: string[] = GALLERY.map((g) => g.src);
@@ -76,7 +84,7 @@ export const DIFERENCIAIS: Diferencial[] = [
   { title: 'Comodidade', description: 'Reserva rápida pelo WhatsApp e operação pensada para o seu conforto.', icon: Anchor },
   { title: 'Preço acessível', description: 'Diversão na água com valores justos para toda a família e grupos.', icon: Wallet },
   { title: 'Segurança', description: 'Coletes, âncora, cabos e equipamentos de segurança inclusos.', icon: ShieldCheck },
-  { title: 'Qualidade', description: 'Frota revisada e em ótimo estado para o máximo desempenho.', icon: Star },
+  { title: 'Qualidade', description: 'Equipamentos revisados e em ótimo estado para o máximo desempenho.', icon: Star },
 ];
 
 // Frames do track horizontal (modelos + quotes intercaladas)
