@@ -6,21 +6,72 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/sobre", "destination": "/#sobre", "permanent": true },
-    { "source": "/jetski", "destination": "/#jetskis", "permanent": true },
-    { "source": "/faq", "destination": "/#faq", "permanent": true },
-    { "source": "/galeria", "destination": "/#galeria", "permanent": true },
-    { "source": "/locais-para-navegacao", "destination": "/#locais", "permanent": true },
-    { "source": "/book-online", "destination": "/", "permanent": true },
-    { "source": "/blog/:path*", "destination": "/", "permanent": true },
-    { "source": "/pol%C3%ADtica-de-:slug", "destination": "/", "permanent": true },
-    { "source": "/política-de-:slug", "destination": "/", "permanent": true },
-    { "source": "/pages-sitemap.xml", "destination": "/sitemap.xml", "permanent": true }
+    {
+      "source": "/sobre",
+      "destination": "/#sobre",
+      "permanent": true
+    },
+    {
+      "source": "/jetski",
+      "destination": "/#jetskis",
+      "permanent": true
+    },
+    {
+      "source": "/faq",
+      "destination": "/#faq",
+      "permanent": true
+    },
+    {
+      "source": "/galeria",
+      "destination": "/#galeria",
+      "permanent": true
+    },
+    {
+      "source": "/locais-para-navegacao",
+      "destination": "/#locais",
+      "permanent": true
+    },
+    {
+      "source": "/book-online",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/pol%C3%ADtica-de-:slug",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/política-de-:slug",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/pages-sitemap.xml",
+      "destination": "/sitemap.xml",
+      "permanent": true
+    }
   ],
   "headers": [
     {
       "source": "/assets/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
+  "crons": [
+    {
+      "path": "/api/instagram-refresh",
+      "schedule": "0 9 * * 1"
     }
   ]
 }

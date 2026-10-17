@@ -1,15 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Instagram as InstagramIcon } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { INSTAGRAM_POSTS, CONTACT_INFO } from '../constants';
 
+import type { InstagramPost } from '../types';
+
 /*
  * Integração do Instagram (@jmsalugueldejetski).
- * Grade leve de posts que leva ao perfil + CTA de seguir, sem dependências
- * externas pesadas. Para um feed 100% dinâmico, basta plugar um widget
- * (Instagram Basic Display API, Behold, EmbedSocial...) no lugar da grade.
+ * Os posts vêm em tempo real da função serverless `/api/instagram` (Instagram
+ * API, cache de 1h na CDN). Enquanto carrega — ou se a API falhar / não
+ * estiver configurada, como no `npm run dev` — mostra a grade estática de
+ * `INSTAGRAM_POSTS` como reserva, então a seção nunca fica vazia.
  */
 const Instagram: React.FC = () => {
+  const [posts, setPosts] = useState<InstagramPost[]>(INSTAGRAM_POSTS);
+
+  useEffect(() => {
+    const ctrl = new AbortController();
+    fetch('/api/instagram', { signal: ctrl.signal })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data: { posts?: InstagramPost[] } | null) => {
+        if (data?.posts?.length) setPosts(data.posts);
+      })
+      .catch(() => { /* mantém a grade estática */ });
+    return () => ctrl.abort();
+  }, []);
+
   return (
     <section id="instagram" className="py-16 md:py-24 bg-secondary scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -31,8 +47,8 @@ const Instagram: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-          {INSTAGRAM_POSTS.map((post, i) => (
-            <motion.a key={i} href={post.permalink} target="_blank" rel="noopener noreferrer"
+          {posts.map((post, i) => (
+            <motion.a key={post.permalink + i} href={post.permalink} target="_blank" rel="noopener noreferrer"
               initial={{ opacity: 0, scale: 0.92 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
               title={post.caption}
