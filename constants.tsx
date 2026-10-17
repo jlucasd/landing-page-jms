@@ -64,7 +64,10 @@ export const CONTACT_INFO = {
   instagram: 'https://www.instagram.com/jmsalugueldejetski/',
   instagramHandle: '@jmsalugueldejetski',
   facebook: 'https://www.facebook.com/profile.php?id=61555002672332',
-  googleReviews: 'https://www.jmsjetski.com.br/',
+  // Aba "Avaliações" do Perfil da Empresa no Google Maps
+  googleReviews: 'https://www.google.com/maps/place//data=!4m4!3m3!1s0xa5da8848a11b02af:0x9b5510476d4f29b1!9m1!1b1',
+  // Formulário para deixar uma avaliação no Google
+  googleReviewWrite: 'https://g.page/r/CbEpT21HEFWbEAE/review',
   maps: 'https://maps.app.goo.gl/2xwj3ciJ4yiMcZ7NA',
 };
 

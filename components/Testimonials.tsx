@@ -76,6 +76,13 @@ const Testimonials: React.FC = () => {
           className="inline-flex items-center mt-10 text-primary font-semibold tracking-widest uppercase text-sm hover:text-muted transition-colors">
           Veja mais comentários aqui →
         </a>
+
+        <div className="mt-6">
+          <a href={CONTACT_INFO.googleReviewWrite} target="_blank" rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 border border-white/30 hover:border-white hover:bg-white hover:text-navy px-6 py-3 font-semibold tracking-widest uppercase text-sm transition-colors">
+            <Star size={16} strokeWidth={1.8} aria-hidden="true" /> Avalie-nos
+          </a>
+        </div>
       </div>
     </section>
   );
