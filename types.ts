@@ -62,4 +62,6 @@ export interface InstagramPost {
   image: string;
   permalink: string;
   caption: string;
+  /** Tipo do post (vem da API ao vivo; ausente na grade estática) */
+  type?: 'IMAGE' | 'VIDEO' | 'CAROUSEL_ALBUM';
 }

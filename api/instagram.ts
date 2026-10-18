@@ -9,7 +9,8 @@
  */
 
 const FIELDS = 'id,caption,media_type,media_url,thumbnail_url,permalink,timestamp';
-const LIMIT = 6;
+const PAGE_SIZE = 50;
+const MAX_POSTS = 60; // teto de segurança para o carrossel (feed inteiro em contas pequenas)
 
 interface IgMedia {
   id: string;
@@ -39,24 +40,32 @@ export async function GET() {
   if (!token) return json({ error: 'INSTAGRAM_ACCESS_TOKEN não configurado' }, 503, 'no-store');
 
   try {
-    const url = `https://graph.instagram.com/me/media?fields=${FIELDS}&limit=${LIMIT * 2}&access_token=${encodeURIComponent(token)}`;
-    const res = await fetch(url);
-    if (!res.ok) {
-      const detail = await res.text();
-      console.error('Instagram API', res.status, detail);
-      return json({ error: 'Falha ao consultar o Instagram' }, 502, 'public, s-maxage=300');
+    // Percorre a paginação do feed até MAX_POSTS
+    const data: IgMedia[] = [];
+    let url: string | undefined =
+      `https://graph.instagram.com/me/media?fields=${FIELDS}&limit=${PAGE_SIZE}&access_token=${encodeURIComponent(token)}`;
+    while (url && data.length < MAX_POSTS) {
+      const res: Response = await fetch(url);
+      if (!res.ok) {
+        console.error('Instagram API', res.status, await res.text());
+        if (data.length) break; // devolve o que já veio
+        return json({ error: 'Falha ao consultar o Instagram' }, 502, 'public, s-maxage=300');
+      }
+      const page = (await res.json()) as { data?: IgMedia[]; paging?: { next?: string } };
+      data.push(...(page.data ?? []));
+      url = page.paging?.next;
     }
-    const { data = [] } = (await res.json()) as { data?: IgMedia[] };
 
     const posts = data
       .map((m) => ({
         image: m.media_type === 'VIDEO' ? m.thumbnail_url : m.media_url,
         permalink: m.permalink,
         caption: shortCaption(m.caption),
+        type: m.media_type,
         timestamp: m.timestamp,
       }))
       .filter((p) => p.image)
-      .slice(0, LIMIT);
+      .slice(0, MAX_POSTS);
 
     return json({ posts }, 200, 'public, s-maxage=3600, stale-while-revalidate=86400');
   } catch (err) {

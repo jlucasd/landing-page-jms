@@ -28,6 +28,8 @@
   .scrollbar-thin::-webkit-scrollbar { height: 6px; }
   .scrollbar-thin::-webkit-scrollbar-thumb { background: #ffffff; border-radius: 3px; }
   .scrollbar-thin::-webkit-scrollbar-track { background: #1a3a5c; }
+  .scrollbar-none { scrollbar-width: none; }
+  .scrollbar-none::-webkit-scrollbar { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -31,7 +31,12 @@ function webpGeneratorPlugin(): Plugin {
 }
 
 export default defineConfig({
-  server: { port: 3000, host: '0.0.0.0' },
+  server: {
+    port: 3000,
+    host: '0.0.0.0',
+    // Funções serverless (/api) só existem na Vercel: no dev, usa as do site no ar
+    proxy: { '/api': { target: 'https://www.jmsjetski.com.br', changeOrigin: true } },
+  },
   plugins: [
     react(),
     ViteImageOptimizer({
