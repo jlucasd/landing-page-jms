@@ -74,6 +74,13 @@ export const CONTACT_INFO = {
 // Link único de reserva no WhatsApp (usado em todos os CTAs e no botão flutuante)
 export const WHATSAPP_RESERVE = 'https://api.whatsapp.com/send?phone=5548996344407&text=Ol%C3%A1,%20vim%20atrav%C3%A9s%20do%20site%20e%20gostaria%20de%20alugar%20o%20Jet%20Ski%20para%20me%20divertir.';
 
+// Escola Náutica Albor (parceira) — para quem ainda não tem habilitação
+export const ALBOR_INFO = {
+  phone: '(48) 98500-0926',
+  whatsapp: 'https://api.whatsapp.com/send?phone=5548985000926&text=Ol%C3%A1,%20vim%20atrav%C3%A9s%20do%20site%20da%20JMS%20Jetski%20e%20tenho%20interesse%20em%20tirar%20a%20habilita%C3%A7%C3%A3o%20Motonauta.',
+  site: 'https://albornautica.com.br/',
+};
+
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Sobre', href: '#sobre' },
   { label: 'Jetskis', href: '#jetskis' },

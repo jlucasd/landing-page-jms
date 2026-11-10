@@ -13,6 +13,7 @@ import Location from './components/Location';
 import Footer from './components/Footer';
 import WhatsAppWidget from './components/WhatsAppWidget';
 import ChatBot from './components/ChatBot';
+import WhatsAppGate from './components/WhatsAppGate';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
       <Footer />
       <WhatsAppWidget />
       <ChatBot />
+      <WhatsAppGate />
     </div>
   );
 }
