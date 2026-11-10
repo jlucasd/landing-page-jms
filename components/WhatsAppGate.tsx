@@ -120,7 +120,7 @@ const WhatsAppGate: React.FC = () => {
                 <ShieldAlert size={36} strokeWidth={1.5} className="text-primary mb-3" />
                 <h2 id="wa-gate-title" className="font-display text-2xl font-bold text-primary mb-3">Locação apenas para habilitados</h2>
                 <p className="text-muted text-sm leading-relaxed mb-3">
-                  Nossas locações são exclusivas para pessoas habilitadas como Motonauta (CHA-MTA) — é uma regra de segurança, sem exceções.
+                  Nossas locações são exclusivas para pessoas habilitadas como Motonauta (CHA-MTA) — é uma norma obrigatória da Marinha do Brasil, sem exceções.
                 </p>
                 <p className="text-muted text-sm leading-relaxed mb-5">
                   Tem interesse em se habilitar? Fale com a <strong className="text-primary">Escola Náutica Albor</strong>, nossa parceira em Laguna/SC: {ALBOR_INFO.phone}.
